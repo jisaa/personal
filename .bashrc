@@ -1,4 +1,4 @@
-alias updatea='sudo apt update; sudo apt upgrade; sudo apt autoremove; sudo snap refresh; '
+alias updatea='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; sudo snap refresh; '
 
 alias hotspot='nmcli dev wifi hotspot ifname wlo1 ssid apeiron-garage password "replace_with_password"'
 
