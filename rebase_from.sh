@@ -29,6 +29,13 @@ git pull
 git checkout -
 # the -i option lets you rewrite commit messages
 git rebase -i $baseBranch
+
+if [ ! $? -eq 0 ]
+then
+	echo "Error rebasing, time to fix conflicts."
+	exit
+fi
+
 git status
 
 # ask for confirmation to rewrite history on the remote
