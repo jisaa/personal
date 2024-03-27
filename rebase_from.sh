@@ -19,17 +19,24 @@ fi
 git checkout $baseBranch
 if [ ! $? -eq 0 ]
 then
-	echo "Error pulling base branch, aborting."
+	echo "Error checkint out base branch, aborting."
 	exit
 fi
 
 # make sure that the base branch is up to date
 git pull
+if [ ! $? -eq 0 ]
+then
+	echo "Error pulling base branch, aborting and going back to original branch."
+	git checkout -
+	exit
+fi
+
 # go back to the feature branch
 git checkout -
+
 # the -i option lets you rewrite commit messages
 git rebase -i $baseBranch
-
 if [ ! $? -eq 0 ]
 then
 	echo "Error rebasing, time to fix conflicts."
