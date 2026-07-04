@@ -2,7 +2,7 @@ alias updatea='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; sud
 
 alias git_pull_all='for i in */.git; do (cd $i/..; echo "** pulling ${i} ** branch: $(git rev-parse --abbrev-ref HEAD)"; git pull --recurse-submodules; echo ""; ); done'
 alias rebase_from='bash ~/.rebase_from.sh '
-alias repull='git reset --hard origin/$(git branch --show-current)'
+alias repull='git pull; git reset --hard origin/$(git branch --show-current); '
 
 alias pipenv_lock='time pipenv lock --pre --clear'
 alias pipenv_reinstall='pipenv uninstall --all; pipenv install --dev'
